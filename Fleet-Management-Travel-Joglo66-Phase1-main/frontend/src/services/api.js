@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8001/api';
 
-// Create axios instance with default config
+
 const api = axios.create({
-  baseURL: `${API_BASE_URL}/api`,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: API_BASE_URL,
+  headers: { 'Content-Type': 'application/json' },
 });
+
 
 // Add auth token to requests
 api.interceptors.request.use((config) => {
